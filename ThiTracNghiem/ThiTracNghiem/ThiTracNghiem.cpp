@@ -13,6 +13,8 @@ int main()
     std::cout << "a + b = " << add(a, b) << '\n';
     std::cout << "a + b + c = " << add(a, add(b, c)) << '\n';
 
+    std::cout << "new lines\n";
+
     system("pause");
 
     return 0;
