@@ -124,7 +124,7 @@ struct CauHoi
 
 struct DanhSachCauHoi // cây nhị phân tìm kiếm
 {
-    CauHoi key;
+    // CauHoi key;
     CauHoi info;
     DanhSachCauHoi *left;
     DanhSachCauHoi *right;
