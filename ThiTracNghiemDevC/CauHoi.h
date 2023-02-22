@@ -18,6 +18,9 @@ struct DanhSachCauHoi // cây nhị phân tìm kiếm
     CauHoi info; //key = info.ID;
     DanhSachCauHoi *left;
     DanhSachCauHoi *right;
+
+
+    
 };
 
 typedef DanhSachCauHoi *STreeCH;

@@ -1,10 +1,10 @@
-5. Thi trắc nghiệm: Ta tổ chức các danh sách sau: 
+5. Thi trắc nghivệm: Ta tổ chức các danh sách sau: 
 
-- Danh sách môn học: danh sách tuyến tính có tối đa 300 môn (MAMH (C15), TENMH), và luôn có sẵn thứ tự theo mã môn học
-- Danh sách Lop : mảng con trỏ có tối đa 500 lớp(MALOP, TENLOP, niên khóa ,  con trỏ dssv): con trỏ dssv  trỏ đến danh sách sinh viên thuộc lớp đó.
-- Danh sách sinh viên : danh sách liên kết đơn (MASV, HO, TEN,  PHAI, password, con trỏ ds_điểm): con trỏ ds_điểm sẽ quản lý điểm các môn đã thi trắc nghiệm.
-- Danh sách Điểm thi (danh sách liên kết đơn) ****(Mamh, Diem)****
-- Danh sách Câu hỏi thi : chứa các câu hỏi nguồn của các môn học (Id, Mã MH, Nội dung, A, B, C, D, Đáp án); trong đó A, B, C, D là 4 chọn lựa tương ứng với nội dung câu hỏi. Danh sách câu hỏi thi là cây nhị phân tìm kiếm.
+- Danh sách môn học: danh sách tuyến tính có tối đa 300 môn (_MAMH (C15), TENMH), và luôn có sẵn thứ tự theo mã môn học
+- Danh sách Lop : mảng con trỏ có tối đa 500 lớp(_MALOP, TENLOP, niên khóa ,  con trỏ dssv): con trỏ dssv  trỏ đến danh sách sinh viên thuộc lớp đó.
+- Danh sách sinh viên : danh sách liên kết đơn (_MASV, HO, TEN,  PHAI, password, con trỏ ds_điểm): con trỏ ds_điểm sẽ quản lý điểm các môn đã thi trắc nghiệm.
+- Danh sách Điểm thi (danh sách liên kết đơn) ****(_Mamh, Diem)****
+- Danh sách Câu hỏi thi : chứa các câu hỏi nguồn của các môn học (_Id, Mã MH, Nội dung, A, B, C, D, Đáp án); trong đó A, B, C, D là 4 chọn lựa tương ứng với nội dung câu hỏi. Danh sách câu hỏi thi là cây nhị phân tìm kiếm.
 
 Chương trình có các chức năng sau : 
 a/ Đăng nhập dựa vào mã sinh viên, password. Nếu tài khoản đăng nhập là GV, pass là GV thì sẽ có toàn quyền .
