@@ -34,7 +34,7 @@ void delete_First_DT(PtrDT &first);
 void delete_Last_DT(PtrDT &first);
 void delete_After_DT(PtrDT &first, PtrDT p);
 
-void search_info_DT(PtrDT first, DiemThi x);
+int search_info_DT(PtrDT first, DiemThi x);
 
 #endif
 /////////////////////////////////////////
