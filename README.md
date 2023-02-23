@@ -1,27 +1,3 @@
 # Data-structures-and-Algorithms
 
-" Thi trắc nghiệm "
--------------------------------------------
-
-# Tên tắt
-Sinh viên = SV;
-
-Câu hỏi   = CH;
-
-Lớp học   = LH;
-
-Điểm      = DT;
-
-Môn học   = MH;
-
-# Quy định đặt tên
-Danh sách tuyến tính: dùng List + Tên danh sách(ví dụ: Danh sách điểm thi = ListDT);
-
-Danh sách liên kết đơn: Ptr + Tên (ví dụ: Danh sách sinh viên = PtrSV);
-
-Cây nhị phân tìm kiếm: STree + Tên (ví dụ: Danh sách câu hỏi = STreeCH)
-...
-
-------------------------------------------
-
-(còn tiếp)
+https://www.notion.so/CTDL-GT-n-nh-m-4-d56e0767ef0043aa8837695e18b748c8?pvs=4
