@@ -24,11 +24,17 @@ void KhoiTao_PtrDT(PtrDT &First)
     First = NULL;
 }
 
-/*
+bool is_Empty_DT(PtrDT &first);
 
-(some functions here)
+void insert_First_DT(PtrDT &first, DiemThi x);
+void insert_Last_DT(PtrDT &first, DiemThi x);
+void insert_After_DT(PtrDT p, DiemThi x);
 
-*/
+void delete_First_DT(PtrDT &first);
+void delete_Last_DT(PtrDT &first);
+void delete_After_DT(PtrDT &first, PtrDT p);
+
+void search_info_DT(PtrDT first, DiemThi x);
 
 #endif
 /////////////////////////////////////////
