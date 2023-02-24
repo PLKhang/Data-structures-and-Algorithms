@@ -11,7 +11,7 @@ struct CauHoi
     char maMonHoc[16];
     unsigned short answer;                      // 1 || 2 || 3 || 4
     // char *ans1, *ans2, *ans3, *ans4, *question; // câu hỏi & 4 đáp án
-    char ans1[100], ans2[100], ans3[100], ans4[100], question[100]; // câu hỏi & 4 đáp án
+    char ans1[100], ans2[100], ans3[100], ans4[100], question[200]; // câu hỏi & 4 đáp án
 
 };
 
