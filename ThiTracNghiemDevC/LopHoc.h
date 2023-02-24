@@ -11,15 +11,15 @@
 struct LopHoc
 {
     char maLop[16];
-    char tenLop[51];
-    char nienKhoa[11];
-    PtrSV danhSachSinhVien;
+    char tenLop[16];
+    char nienKhoa[5];
+    PtrSV First;
 };
 
 struct DanhSachLopHoc // mảng con trỏ
 {
-    int n{0};
-    LopHoc *nodes[MaxOfClasses]; //MaxOfClasses = 500
+    int n=0;
+    LopHoc *nodes[MaxOfClasses];
 };
 
 typedef DanhSachLopHoc ListLH;
