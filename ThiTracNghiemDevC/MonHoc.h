@@ -13,7 +13,7 @@ struct MonHoc
 
 struct DanhSachMonHoc // mảng con trỏ
 {
-    int n{0};
+    int n=0;
     MonHoc *nodes[MaxOfSubjects];
 };
 

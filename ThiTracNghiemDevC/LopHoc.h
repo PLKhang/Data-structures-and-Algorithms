@@ -18,7 +18,7 @@ struct LopHoc
 
 struct DanhSachLopHoc // mảng con trỏ
 {
-    int n{0};
+    int n=0;
     LopHoc *nodes[MaxOfClasses];
 };
 
