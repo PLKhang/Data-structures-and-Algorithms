@@ -11,13 +11,13 @@ struct DiemThi
     float diemThi;
 };
 
-struct DanhSachDiemThi // Danh sách liên kết đơn Điểm thi
+struct nodeDiemThi
 {
     DiemThi info;
-    DanhSachDiemThi *next;
+    nodeDiemThi *next;
 };
 
-typedef DanhSachDiemThi *PtrDT;
+typedef nodeDiemThi *PtrDT;
 
 void KhoiTao_PtrDT(PtrDT &First)
 {

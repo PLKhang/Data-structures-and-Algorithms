@@ -8,20 +8,20 @@
 struct SinhVien
 {
     char MSSV[11];
-    char ho[21];
+    char ho[51];
     char ten[16];
     char password[21];
     bool phai; // male: 0     female: 1
     PtrDT danhSachDiemThi;
 };
 
-struct DanhSachSinhVien // Danh sách liên kết đơn Sinh viên
+struct nodeSinhVien
 {
     SinhVien info;
-    DanhSachSinhVien *next;
+    nodeSinhVien *next;
 };
 
-typedef DanhSachSinhVien *PtrSV;
+typedef nodeSinhVien *PtrSV;
 
 void KhoiTao_PtrSV(PtrSV &First) // Khởi tạo danh sách liên kết SV
 {

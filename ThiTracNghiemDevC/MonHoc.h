@@ -8,7 +8,7 @@
 struct MonHoc
 {
     char maMonHoc[16];
-    char tenMonHoc[16];
+    char tenMonHoc[51];
 };
 
 struct DanhSachMonHoc // mảng con trỏ
