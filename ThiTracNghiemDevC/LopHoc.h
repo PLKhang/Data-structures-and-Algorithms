@@ -11,7 +11,7 @@
 struct LopHoc
 {
     char maLop[16];
-    char tenLop[16];
+    char tenLop[51];
     char nienKhoa[5];
     PtrSV First;
 };

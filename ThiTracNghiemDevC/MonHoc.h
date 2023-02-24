@@ -14,7 +14,7 @@ struct MonHoc
 struct DanhSachMonHoc // mảng con trỏ
 {
     int n=0;
-    MonHoc *nodes[MaxOfSubjects];
+    MonHoc nodes[MaxOfSubjects];//Danh sach tuyen tinh
 };
 
 typedef DanhSachMonHoc ListMH;
