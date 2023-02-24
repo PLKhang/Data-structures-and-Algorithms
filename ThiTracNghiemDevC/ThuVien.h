@@ -4,15 +4,21 @@
 #include<conio.h>
 #include<string>
 using namespace std;
-void gotoxy(int x, int y) {
-	COORD coord;
-	coord.X = x;
-	coord.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
+
+// di chuyển con trỏ đến tọa độ x,y
+void gotoxy(short x,short y)
+{
+        HANDLE hConsoleOutput;
+        COORD Cursor_an_Pos = { x,y};
+        hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleCursorPosition(hConsoleOutput , Cursor_an_Pos);
+} 
+// Tô màu chữ
 void TextColor(int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
+
+//Tô màu nền 
 void SetBGColor(WORD color)
 {
 	HANDLE hConsoleOutput;
@@ -67,6 +73,8 @@ void ClearScreen()
 	/* Move the cursor home */
 	SetConsoleCursorPosition(hStdOut, homeCoords);
 }
+
+// xác định tọa độ tại X
 int wherex()
 {
 	HANDLE hConsoleOutput;
@@ -75,6 +83,8 @@ int wherex()
 	GetConsoleScreenBufferInfo(hConsoleOutput, &screen_buffer_info);
 	return screen_buffer_info.dwCursorPosition.X;
 }
+
+//Xác định tọa độ tại Y
 int wherey(void)
 {
 	HANDLE hConsoleOutput;
