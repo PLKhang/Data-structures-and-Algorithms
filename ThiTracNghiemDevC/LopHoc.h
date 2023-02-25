@@ -12,13 +12,13 @@ struct LopHoc
 {
     char maLop[16];
     char tenLop[51];
-    char nienKhoa[5];
+    char nienKhoa[11];
     PtrSV First;
 };
 
 struct DanhSachLopHoc // mảng con trỏ
 {
-    int n=0;
+    int n = 0;
     LopHoc *nodes[MaxOfClasses];
 };
 
