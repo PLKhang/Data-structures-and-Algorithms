@@ -11,13 +11,13 @@ struct DiemThi
     float diemThi;
 };
 
-struct DanhSachDiemThi // Danh sách liên kết đơn Điểm thi
+struct nodeDiemThi // Danh sách liên kết đơn Điểm thi
 {
     DiemThi info;
-    DanhSachDiemThi *next;
+    nodeDiemThi *next;
 };
 
-typedef DanhSachDiemThi *PtrDT;
+typedef nodeDiemThi *PtrDT;
 
 void KhoiTao_PtrDT(PtrDT &First)
 {
@@ -37,7 +37,7 @@ void clear_List_DT(PtrDT &first);
 
 int search_info_DT(PtrDT first, DiemThi x);
 
-void 
+void print_List_DT(PtrDT first);
 
 #endif
 /////////////////////////////////////////
