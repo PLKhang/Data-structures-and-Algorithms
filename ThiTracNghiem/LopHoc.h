@@ -1,10 +1,9 @@
-// L?p h?c và danh sách l?p h?c
-/////////////////////////////////////////
-#include <iostream>
-#include "SinhVien.h"
-
 #ifndef DANH_SACH_LOP_HOC
 #define DANH_SACH_LOP_HOC
+
+#pragma once
+#include <iostream>
+#include "SinhVien.h"
 
 #define MaxOfClasses 500
 
@@ -19,7 +18,7 @@ struct LopHoc
 struct DanhSachLopHoc // m?ng con tr?
 {
     int n = 0;
-    LopHoc *nodes[MaxOfClasses];
+    LopHoc* nodes[MaxOfClasses];
 };
 
 typedef DanhSachLopHoc ListLH;
@@ -31,4 +30,3 @@ typedef DanhSachLopHoc ListLH;
 */
 
 #endif
-/////////////////////////////////////////

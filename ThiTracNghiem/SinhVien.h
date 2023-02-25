@@ -1,8 +1,7 @@
-// Sinh viên và Danh sách sinh viên
-/////////////////////////////////////////
 #ifndef DANH_SACH_SINH_VIEN
 #define DANH_SACH_SINH_VIEN
 
+#pragma once
 #include "DiemThi.h"
 
 struct SinhVien
@@ -15,15 +14,15 @@ struct SinhVien
     PtrDT danhSachDiemThi;
 };
 
-struct nodeSinhVien // Danh sách liên k?t don Sinh viên
+struct nodeSinhVien
 {
     SinhVien info;
-    nodeSinhVien *next;
+    nodeSinhVien* next;
 };
 
-typedef nodeSinhVien *PtrSV;
+typedef nodeSinhVien* PtrSV;
 
-void KhoiTao_PtrSV(PtrSV &First) // Kh?i t?o danh sách liên k?t SV
+void KhoiTao_PtrSV(PtrSV& First)
 {
     First = NULL;
 }
@@ -35,4 +34,4 @@ void KhoiTao_PtrSV(PtrSV &First) // Kh?i t?o danh sách liên k?t SV
 */
 
 #endif
-/////////////////////////////////////////
+

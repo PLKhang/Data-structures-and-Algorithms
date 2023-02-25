@@ -1,7 +1,7 @@
 [Project]
-FileName=ThiTracNghiem.dev
-Name=Project1
-Type=0
+FileName=CTDLnhom4.dev
+Name=CTDLnhom4
+Type=1
 Ver=2
 ObjFiles=
 Includes=
@@ -28,8 +28,8 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000000000000001000000
-UnitCount=7
+CompilerSettings=0000000000000000000000000
+UnitCount=8
 
 [VersionInfo]
 Major=1
@@ -61,16 +61,6 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=ThuVien.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
 FileName=DiemThi.h
 CompileCpp=1
 Folder=
@@ -80,7 +70,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
+[Unit3]
 FileName=SinhVien.h
 CompileCpp=1
 Folder=
@@ -90,8 +80,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit5]
+[Unit4]
 FileName=LopHoc.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit5]
+FileName=CauHoi.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -111,7 +111,17 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=CauHoi.h
+FileName=Math.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit8]
+FileName=Math.cpp
 CompileCpp=1
 Folder=
 Compile=1

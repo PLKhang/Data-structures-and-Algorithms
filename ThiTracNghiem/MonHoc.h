@@ -1,7 +1,7 @@
-// Môn h?c và Danh sách môn h?c
-/////////////////////////////////////////
 #ifndef DANH_SACH_MON_HOC
 #define DANH_SACH_MON_HOC
+
+#pragma once
 
 #define MaxOfSubjects 300
 
@@ -11,7 +11,7 @@ struct MonHoc
     char tenMonHoc[51];
 };
 
-struct DanhSachMonHoc // m?ng con tr?
+struct DanhSachMonHoc
 {
     int n = 0;
     MonHoc nodes[MaxOfSubjects];
@@ -26,4 +26,3 @@ typedef DanhSachMonHoc ListMH;
 */
 
 #endif
-/////////////////////////////////////////
