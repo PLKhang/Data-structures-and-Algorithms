@@ -10,7 +10,11 @@ struct CauHoi
     char ID[16];
     char maMonHoc[16];
     unsigned short answer;                      // 1 || 2 || 3 || 4
-    char *ans1, *ans2, *ans3, *ans4, *question; // câu hỏi & 4 đáp án
+    char ans1[100];
+    char ans2[100];
+    char ans3[100];
+    char ans4[100];
+    char question[200];
 };
 
 struct DanhSachCauHoi // cây nhị phân tìm kiếm
