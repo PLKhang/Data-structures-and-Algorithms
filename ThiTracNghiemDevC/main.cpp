@@ -1,11 +1,9 @@
-#include <iostream>
-// #include "headerTest.h"
-
+#include"ThuVien.h"
 using namespace std;
 
 int main(){
-	cout << "Hello world!\n";
-	
-	cout << "end of program\n";
+	string a=NhapChuoi(0,10);
+	gotoxy(0,0);
+	cout<<a;
 	return 0;
 }

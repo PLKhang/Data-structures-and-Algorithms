@@ -1,5 +1,4 @@
 #include"ThuVien.h"
-
 void gotoxy(short x,short y)
 {
         HANDLE hConsoleOutput;
@@ -121,14 +120,27 @@ int NhapSo(int x, int y)// x va y la dia chi de hien ki tu vua nhap
 }
 string NhapChuoi(int x,int y)// x va y la dia chi de hien ki tu vua nhap
 {
-	string chuoi;
-	int index;
-	char ki_tu=getch();
-	while(true)
+	char chuoi[51];
+	int index=0;
+	char ki_tu;
+	while((ki_tu=getch())!=13&&index<51)
 	{
-	 if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||ki_tu=='_')
-	 chuoi[index++]=ki_tu;
-	 else if(ki_tu==13)break;
+	 if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||ki_tu=='_'||(ki_tu==32&&index!=0))
+	 {
+	 	if(ki_tu==32&&index>0&&chuoi[index-1]==32)continue;
+		chuoi[index]=ki_tu;
+		gotoxy(x+index,y);
+		cout<<ki_tu;
+		index++;
+	 }
+	 if(ki_tu==8&&index>0)
+	 {
+	 	index--;
+	 	gotoxy(x+index,y);
+	    cout<<" ";	
+	    gotoxy(x+index,y);
+	 }
 	}
+	chuoi[index]='\0';
 	return chuoi;
 }
