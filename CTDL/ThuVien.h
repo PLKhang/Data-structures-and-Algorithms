@@ -4,7 +4,7 @@
 #include<conio.h>
 #include<string>
 using namespace std;
-void gotoxy(short x,short y);
+void gotoxy(int x, int y);
 void TextColor(int color) ;
 void SetBGColor(WORD color);
 void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung);
