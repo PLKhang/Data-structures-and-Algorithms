@@ -144,16 +144,23 @@ string NhapMa(int x,int y)
 	Ma[index]='\0';
 	return Ma;
 }
-bool ThongBao1(int x,int y,string noidung,int thong_bao)
+bool ThongBao1(int x,int y,string noidung,int thong_bao,int loai)
 {
 	char ki_tu,vi_tri='t';
-	VeKhung(x,y,x+50,y+4,3,0);
+	int khoang_cach=1;
+	if(loai==1)
+	{
+		VeKhung(x,y,x+50,y+4,3,0);
+		khoang_cach=3;
+	}
+	else gotoxy(x+17,y);
+	SetBGColor(3);
 	cout<<noidung;
 	if(thong_bao==0)
 	{
 		return false;
 	}
-	    gotoxy(x+20,y+3);
+	    gotoxy(x+20,y+khoang_cach);
 	    SetBGColor(5);
 	    cout<<"YES ";
 	    SetBGColor(1);
@@ -162,7 +169,7 @@ bool ThongBao1(int x,int y,string noidung,int thong_bao)
 	{
 		if(ki_tu==75)
 		{
-		gotoxy(x+20,y+3);
+		gotoxy(x+20,y+khoang_cach);
 	    SetBGColor(5);
 	    cout<<"YES ";
 	    SetBGColor(1);
@@ -171,7 +178,7 @@ bool ThongBao1(int x,int y,string noidung,int thong_bao)
 		}
 		if(ki_tu==77)
 		{
-		gotoxy(x+20,y+3);
+		gotoxy(x+20,y+khoang_cach);
 	    SetBGColor(1);
 	    cout<<"YES ";
 	    SetBGColor(5);

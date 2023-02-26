@@ -11,4 +11,4 @@ void VeKhung(int x1,int y1,int x2,int y2,int mau_nen,int loai_khung);
 string NhapMa(int x,int y);
 string NhapChuoi(int x,int y);
 int NhapSo(int x,int y);
-bool ThongBao1(int x,int y,string noidung,int thong_bao);
+bool ThongBao1(int x,int y,string noidung,int thong_bao,int loai);
