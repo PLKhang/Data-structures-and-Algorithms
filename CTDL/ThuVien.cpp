@@ -25,12 +25,15 @@ void SetBGColor(WORD color)
 	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
 void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
-	for (int ix = x1; ix <= x2; ix++) {
+	if(loai_khung!=0)
+	{
+	for (int ix = x1+1; ix < x2; ix++) 
+	{
 		gotoxy(ix, y1);
 		cout << char(196);
 		gotoxy(ix, y2 );
 		cout << char(196);
-		if(loai_khung==1)
+		if(loai_khung==2)
 		{
 		gotoxy(ix, y1+1);
 		cout << char(196);
@@ -38,12 +41,13 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
 		cout << char(196);	
 		}
 	}
-	for (int iy = y1+1; iy < y2; iy++) {
+	for (int iy = y1+1; iy < y2; iy++) 
+	{
 		gotoxy(x1, iy);
 		cout << char(179);
 		gotoxy(x2, iy);
 		cout << char(179);
-		if(loai_khung==1)
+		if(loai_khung==2)
 		{
 		gotoxy(x1+1, iy);
 		cout << char(179);
@@ -56,29 +60,30 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
 	gotoxy(x1, y2 ); cout << char(192);
 	gotoxy(x2 , y1); cout << char(191);
 	gotoxy(x2 , y2); cout << char(217);
-	if(loai_khung==1)
+	if(loai_khung==2)
 	{
 	gotoxy(x1+1, y1+1); cout << char(218);
 	gotoxy(x1+1, y2-1 ); cout << char(192);
 	gotoxy(x2-1 , y1+1); cout << char(191);
 	gotoxy(x2-1 , y2-1); cout << char(217);
 	}
+	}
+	///////////////////////////////////////////
 	if(mau_nen!=-1)
 	{
 		int kt=1;
-		if(loai_khung==1)kt=2;
+		if(loai_khung==2)kt=2;
+		SetBGColor(mau_nen);
 		for (int ix = x1+kt; ix <= x2-kt; ix++) 
 		{
 			for (int iy = y1+kt; iy <= y2-kt; iy++)
 			{
 				gotoxy(ix,iy);
-				SetBGColor(mau_nen);
 				cout<<" ";
 			}
 		}
 		SetBGColor(0);
 	}
-
 }
 int NhapSo(int x, int y)// x va y la dia chi de hien ki tu vua nhap
 {
