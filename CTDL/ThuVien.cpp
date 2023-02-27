@@ -25,58 +25,16 @@ void SetBGColor(WORD color)
 	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
 void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
-	if(loai_khung!=0)
-	{
-	for (int ix = x1+1; ix < x2; ix++) 
-	{
-		gotoxy(ix, y1);
-		cout << char(196);
-		gotoxy(ix, y2 );
-		cout << char(196);
-		if(loai_khung==2)
-		{
-		gotoxy(ix, y1+1);
-		cout << char(196);
-		gotoxy(ix, y2-1 );
-		cout << char(196);	
-		}
-	}
-	for (int iy = y1+1; iy < y2; iy++) 
-	{
-		gotoxy(x1, iy);
-		cout << char(179);
-		gotoxy(x2, iy);
-		cout << char(179);
-		if(loai_khung==2)
-		{
-		gotoxy(x1+1, iy);
-		cout << char(179);
-		gotoxy(x2-1, iy);
-		cout << char(179);
-		}
-	}
-	//Ve 4 goc vuong
-	gotoxy(x1, y1); cout << char(218);
-	gotoxy(x1, y2 ); cout << char(192);
-	gotoxy(x2 , y1); cout << char(191);
-	gotoxy(x2 , y2); cout << char(217);
-	if(loai_khung==2)
-	{
-	gotoxy(x1+1, y1+1); cout << char(218);
-	gotoxy(x1+1, y2-1 ); cout << char(192);
-	gotoxy(x2-1 , y1+1); cout << char(191);
-	gotoxy(x2-1 , y2-1); cout << char(217);
-	}
-	}
-	///////////////////////////////////////////
+	int khung_ngang=196,khung_doc=179,goc1=218,goc2=191,goc3=192,goc4=217;
+	int nen=1;
+	//*****************TO MAU**************************
+	if(loai_khung==0)nen=0;
 	if(mau_nen!=-1)
 	{
-		int kt=1;
-		if(loai_khung==2)kt=2;
 		SetBGColor(mau_nen);
-		for (int ix = x1+kt; ix <= x2-kt; ix++) 
+		for (int ix = x1+nen; ix < x2; ix++) 
 		{
-			for (int iy = y1+kt; iy <= y2-kt; iy++)
+			for (int iy = y1+nen; iy < y2; iy++)
 			{
 				gotoxy(ix,iy);
 				cout<<" ";
@@ -84,6 +42,31 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
 		}
 		SetBGColor(0);
 	}
+	if(loai_khung==0)return;
+	if(loai_khung==2)
+	{
+		khung_ngang=205;khung_doc=186;
+		goc1=201;goc2=187;goc3=200;goc4=188;
+	}
+	for (int ix = x1+1; ix < x2; ix++) 
+	{
+		gotoxy(ix, y1);
+		cout << char(khung_ngang);
+		gotoxy(ix, y2 );
+		cout << char(khung_ngang);
+	}
+	for (int iy = y1+1; iy < y2; iy++) 
+	{
+		gotoxy(x1, iy);
+		cout << char(khung_doc);
+		gotoxy(x2, iy);
+		cout << char(khung_doc);
+	}
+	//*****************VE GOC************************** 
+	gotoxy(x1, y1); cout << char(goc1);
+	gotoxy(x2 , y1); cout << char(goc2);
+	gotoxy(x1, y2 ); cout << char(goc3);
+	gotoxy(x2 , y2); cout << char(goc4);
 }
 int NhapSo(int x, int y)// x va y la dia chi de hien ki tu vua nhap
 {
@@ -158,18 +141,19 @@ bool ThongBao1(int x,int y,string noidung,int thong_bao,int loai)
 		VeKhung(x,y,x+50,y+4,3,0);
 		khoang_cach=3;
 	}
-	else gotoxy(x+17,y);
+    gotoxy(x+17,y);
 	SetBGColor(3);
 	cout<<noidung;
 	if(thong_bao==0)
 	{
+		SetBGColor(0);
 		return false;
 	}
-	    gotoxy(x+20,y+khoang_cach);
-	    SetBGColor(5);
-	    cout<<"YES ";
-	    SetBGColor(1);
-	    cout<<"| NO";
+	gotoxy(x+20,y+khoang_cach);
+    SetBGColor(5);
+    cout<<"YES ";
+    SetBGColor(1);
+    cout<<"| NO";
 	while((ki_tu=getch())!=13)
 	{
 		if(ki_tu==75)
