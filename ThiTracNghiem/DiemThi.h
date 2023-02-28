@@ -13,29 +13,35 @@ struct DiemThi
 struct nodeDiemThi
 {
     DiemThi info;
-    nodeDiemThi* next;
+    nodeDiemThi *next;
 };
 
-typedef nodeDiemThi* PtrDT;
+typedef nodeDiemThi *PtrDT;
 
-void KhoiTao_PtrDT(PtrDT& First)
+void KhoiTao_PtrDT(PtrDT &First)
 {
     First = NULL;
 }
 
-bool is_Empty_DT(PtrDT& first);
+bool is_Empty_DT(PtrDT &first);
+bool is_Full_DT(PtrDT &first);
+bool is_Existed_MaMon(PtrDT &first, char * maMon);
 
-void insert_First_DT(PtrDT& first, DiemThi x);
-void insert_Last_DT(PtrDT& first, DiemThi x);
-void insert_After_DT(PtrDT p, DiemThi x);
+void insert_First_DT(PtrDT &first, DiemThi x);
+void insert_Last_DT(PtrDT &first, DiemThi x);
+void insert_After_DT(PtrDT &p, DiemThi x);
 
-void delete_First_DT(PtrDT& first);
-void delete_Last_DT(PtrDT& first);
-void delete_After_DT(PtrDT& first, PtrDT p);
-void clear_List_DT(PtrDT& first);
+void delete_First_DT(PtrDT &first);
+void delete_Last_DT(PtrDT &first);
+void delete_After_DT(PtrDT &first, PtrDT p);
+void delete_List_DT(PtrDT &first);
+void delete_Info_DT(PtrDT &first, DiemThi x);
 
-int search_info_DT(PtrDT first, DiemThi x);
+bool search_Info_DT(PtrDT &first, char * maMon);
+void set_Info_DT(PtrDT &first, DiemThi x);
+PtrDT pos_MonHoc_DT(PtrDT &first, char *maMon);
+int counting_Score_DT(PtrDT &first, float x, int types);
 
 void print_List_DT(PtrDT first);
 
-#endif
+#endif // DANH_SACH_DIEM_THI
