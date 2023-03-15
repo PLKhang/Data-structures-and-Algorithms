@@ -5,7 +5,9 @@ mã lớp | tên lớp | niên khóa
 vd: D21CQCN01-N | 2021 - Công nghệ thông tin 1 | 2021
 
 ---
-## 2. file danh sách môn học(DanhSachMonHoc.txt)
+## 2. file danh sách môn học
+(DanhSachMonHoc.txt)
+
 mã môn học | tên môn học
 
 ---
