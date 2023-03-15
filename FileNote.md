@@ -1,4 +1,4 @@
-# Ấn Ctrl + Shirf + V để hiện preview(dễ đọc)
+# VSCode: Ấn Ctrl + Shirf + V để hiện preview(dễ đọc)
 
 # 1. file danh sách lớp (DanhSachLopHoc.txt)
 ## (nằm trong folder "__Data__")
