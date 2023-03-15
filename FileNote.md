@@ -1,3 +1,5 @@
+# Ấn Ctrl + Shirf + V để hiện preview(dễ đọc)
+
 # 1. file danh sách lớp (DanhSachLopHoc.txt)
 ## (nằm trong folder "__Data__")
 	mã lớp(C15) | tên lớp(C50) | niên khóa(int)
