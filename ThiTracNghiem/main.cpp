@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Math.h"
 
 using namespace std;
 
@@ -12,13 +11,10 @@ int getNumber()
 
 int main(){
 	cout << "Hello world!\n";
+	cout << "alo alo 1 2 3\n";
 	
 	int a = getNumber();
 	int b = getNumber();
-	
-	cout << "a + b = " << add(a, b) << '\n';
-	cout << "a - b = " << sub(a, b) << '\n';
-	
 	
 	system("pause");
 	return 0;
