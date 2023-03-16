@@ -24,7 +24,32 @@ void SetBGColor(WORD color)
 
 	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
-void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
+int wherex()
+{
+	HANDLE hConsoleOutput;
+	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO screen_buffer_info;
+	GetConsoleScreenBufferInfo(hConsoleOutput, &screen_buffer_info);
+	return screen_buffer_info.dwCursorPosition.X;
+}
+int wherey(void)
+{
+	HANDLE hConsoleOutput;
+	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO screen_buffer_info;
+	GetConsoleScreenBufferInfo(hConsoleOutput, &screen_buffer_info);
+	return screen_buffer_info.dwCursorPosition.Y;
+}
+//////////////////////////////////////////////////////////////////////////
+char GetKey()
+{
+	char key;
+	key = getch();
+	if (key == -32 || key == 0)
+		return -getch();
+	else return key;
+}
+void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung,string content) {
 	int khung_ngang=196,khung_doc=179,goc1=218,goc2=191,goc3=192,goc4=217;
 	int nen=1;
 	//*****************TO MAU**************************
@@ -32,16 +57,21 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
 	if(mau_nen!=-1)
 	{
 		SetBGColor(mau_nen);
-		for (int ix = x1+nen; ix < x2; ix++) 
+		for (int ix = x1+nen; ix < x2-6; ix++) 
 		{
-			for (int iy = y1+nen; iy < y2; iy++)
+			for (int iy = y1+nen; iy <y2; iy++)
 			{
 				gotoxy(ix,iy);
-				cout<<" ";
+				cout<<"       ";
 			}
 		}
 		SetBGColor(0);
 	}
+	//*********IN NOI DUNG*********
+	gotoxy(x1+1,y1+1);
+	SetBGColor(0);
+	cout<<content;
+	//******VE KHUNG********
 	if(loai_khung==0)return;
 	if(loai_khung==2)
 	{
@@ -68,6 +98,19 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung) {
 	gotoxy(x1, y2 ); cout << char(goc3);
 	gotoxy(x2 , y2); cout << char(goc4);
 }
+void VeBangLop(int x1,int y1,int x2,int y2){
+	VeKhung(x1,y1,x2,y2);
+	for(int j=y1+2;j<=y2-2;j+=2){
+		for(int i=x1+1;i<x2;i++){
+			gotoxy(i,j);
+		    cout<<char(196);
+		}
+	}
+	for(int j=y1+3;j<y2;j++){
+		gotoxy(20,j);
+		cout<<char(179);
+	}
+}
 int NhapSo(int x, int y)// x va y la dia chi de hien ki tu vua nhap
 {
     char so=getch();
@@ -84,9 +127,9 @@ string NhapChuoi(int x,int y)// x va y la dia chi de hien ki tu vua nhap
 	char chuoi[51];
 	int index=0;
 	char ki_tu;
-	while((ki_tu=getch())!=13&&index<51)
+	while((ki_tu=GetKey())!=13&&index<51)
 	{
-	 if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||(ki_tu==' '&&index!=0))
+	 if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||(ki_tu==' '&&index!=0)||ki_tu=='-'||ki_tu=='_'||(ki_tu>='0'&&ki_tu<='9'))
 	 {
 	 	if(ki_tu==32&&index>0&&chuoi[index-1]==32)continue;
 		chuoi[index]=ki_tu;
@@ -104,20 +147,22 @@ string NhapChuoi(int x,int y)// x va y la dia chi de hien ki tu vua nhap
 	 }
 	}
 	chuoi[index]='\0';
-	return chuoi;
+	return string(chuoi);
 }
-string NhapMa(int x,int y)
+string NhapMa(int x,int y,string loai)
 {
-	char Ma[51],ki_tu;
+	gotoxy(x,y);
+	char Ma[24] ,ki_tu;
 	int index=0;
-	while((ki_tu=getch())!=13&&index<51)
+	while((ki_tu=GetKey())!=13)
 	{
-		if(index==0&&((ki_tu>='0'&&ki_tu<='9')||ki_tu==' '))continue;
+		if((index==0&&(ki_tu==' '))||ki_tu==-32||ki_tu==0||index==24)continue;
 		if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||(ki_tu>='0'&&ki_tu<='9')||ki_tu=='_')
 		{
-			Ma[index]=ki_tu;
+			Ma[index]=toupper(ki_tu);
 			gotoxy(x+index,y);
-			cout<<ki_tu;
+			if(loai=="MATKHAU")cout<<'*';
+			else cout<<Ma[index];
 			index++;
 		}
 		if(ki_tu==8&&index>0)
@@ -132,33 +177,23 @@ string NhapMa(int x,int y)
 	Ma[index]='\0';
 	return Ma;
 }
-bool ThongBao1(int x,int y,string noidung,int thong_bao,int loai)
+bool ThongBao(int x,int y,string noidung)
 {
 	char ki_tu,vi_tri='t';
-	int khoang_cach=1;
-	if(loai==1)
-	{
-		VeKhung(x,y,x+50,y+4,3,0);
-		khoang_cach=3;
-	}
-    gotoxy(x+17,y);
+	VeKhung(x,y,x+30,y+3,3,1);
+	gotoxy(x+5,y+1);
 	SetBGColor(3);
 	cout<<noidung;
-	if(thong_bao==0)
-	{
-		SetBGColor(0);
-		return false;
-	}
-	gotoxy(x+20,y+khoang_cach);
+	gotoxy(x+12,y+2);
     SetBGColor(5);
-    cout<<"YES ";
-    SetBGColor(1);
-    cout<<"| NO";
+	cout<<"YES ";
+	SetBGColor(1);
+	cout<<"| NO";
 	while((ki_tu=getch())!=13)
 	{
+		gotoxy(x+12,y+2);
 		if(ki_tu==75)
 		{
-		gotoxy(x+20,y+khoang_cach);
 	    SetBGColor(5);
 	    cout<<"YES ";
 	    SetBGColor(1);
@@ -167,7 +202,6 @@ bool ThongBao1(int x,int y,string noidung,int thong_bao,int loai)
 		}
 		if(ki_tu==77)
 		{
-		gotoxy(x+20,y+khoang_cach);
 	    SetBGColor(1);
 	    cout<<"YES ";
 	    SetBGColor(5);
