@@ -19,7 +19,7 @@
 ---
 # 3. file danh sách sinh viên (vd: D21CQCN01.txt) 
 ## (nằm trong folder "__Data\DanhSachSinhVien__" chứa danh sách sinh viên các lớp)
-	mssv(C10) | password(int) | họ(C50) | tên(C15) | giới tính(0 || 1)
+	mssv(C10) | password(string) | họ(C50) | tên(C15) | giới tính(0 || 1)
 
 	vd:
 	1. N21DCCN042 | 12345 | LE PHUC | KHANG | 0
@@ -63,7 +63,7 @@
 # 7. file tài khoản & mật khẩu (DanhSachTaiKhoan.txt)
 ## (nằm trong folder "__Data__" chứa các tài khoản của mỗi sinh viên và tài khoản GV)
 
-	MSSV(string) | password(int)
+	MSSV(string) | password(string)
 
 	vd:
 	GV | GV
