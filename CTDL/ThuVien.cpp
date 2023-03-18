@@ -57,21 +57,19 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung,string cont
 	if(mau_nen!=-1)
 	{
 		SetBGColor(mau_nen);
-		for (int ix = x1+nen; ix < x2-6; ix++) 
+		for (int ix = x1+nen; ix < x2; ix++) 
 		{
 			for (int iy = y1+nen; iy <y2; iy++)
 			{
 				gotoxy(ix,iy);
-				cout<<"       ";
+				cout<<" ";
 			}
 		}
-		SetBGColor(0);
 	}
 	//*********IN NOI DUNG*********
 	gotoxy(x1+1,y1+1);
-	SetBGColor(0);
 	cout<<content;
-	//******VE KHUNG********
+	SetBGColor(0);
 	if(loai_khung==0)return;
 	if(loai_khung==2)
 	{
@@ -98,8 +96,10 @@ void VeKhung(int x1, int y1,int x2,int y2,int mau_nen,int loai_khung,string cont
 	gotoxy(x1, y2 ); cout << char(goc3);
 	gotoxy(x2 , y2); cout << char(goc4);
 }
-void VeBangLop(int x1,int y1,int x2,int y2){
-	VeKhung(x1,y1,x2,y2);
+void VeBangDSLop(int x1,int y1,int x2,int y2){
+	VeKhung(x1,y1,x2,y2,0);
+	gotoxy((x1+x2)/2-15,y1+1);
+	cout<<"DANH SACH CAC LOP";
 	for(int j=y1+2;j<=y2-2;j+=2){
 		for(int i=x1+1;i<x2;i++){
 			gotoxy(i,j);
@@ -110,6 +110,51 @@ void VeBangLop(int x1,int y1,int x2,int y2){
 		gotoxy(20,j);
 		cout<<char(179);
 	}
+}
+void VeBangDSSV(string content,int x1,int y1,int x2,int y2){
+	VeKhung(x1,y1,x2,y2,0);
+	gotoxy((x1+x2)/2-15,y1+1);
+	cout<<content;
+	for(int j=y1+2;j<=y2-2;j+=2){
+		for(int i=x1+1;i<x2;i++){
+			gotoxy(i,j);
+		    cout<<char(196);
+		}
+	}
+	for(int j=y1+3;j<y2;j++){
+		gotoxy(20,j);
+		cout<<char(179);
+	}
+	
+	for(int j=y1+3;j<y2;j++){
+	gotoxy(60,j);
+	cout<<char(179);
+   	}
+   	for(int j=y1+3;j<y2;j++){
+	gotoxy(80,j);
+	cout<<char(179);
+    }
+    gotoxy(x1+6,y1+3);cout<<"MSSV";
+    gotoxy(x1+35,y1+3);cout<<"HO";
+    gotoxy(x1+68,y1+3);cout<<"TEN";
+    gotoxy(x1+85,y1+3);cout<<"PHAI";
+}
+void VeBangSV(string content,int x1,int y1,int x2,int y2){
+	VeKhung(x1,y1,x2,y2,0);
+	gotoxy((x1+x2)/2-15,y1+1);
+	cout<<content;
+	for(int j=y1+2;j<=y2-2;j+=2){
+		for(int i=x1+1;i<x2;i++){
+			gotoxy(i,j);
+		    cout<<char(196);
+		}
+	}
+	for(int j=y1+3;j<y2;j++){
+		gotoxy(50,j);
+		cout<<char(179);
+	}
+    gotoxy(x1+20,y1+3);cout<<"MON HOC";
+    gotoxy(x1+70,y1+3);cout<<"DIEM THI";
 }
 int NhapSo(int x, int y)// x va y la dia chi de hien ki tu vua nhap
 {
@@ -124,11 +169,13 @@ int NhapSo(int x, int y)// x va y la dia chi de hien ki tu vua nhap
 }
 string NhapChuoi(int x,int y)// x va y la dia chi de hien ki tu vua nhap
 {
+	gotoxy(x,y);
 	char chuoi[51];
 	int index=0;
 	char ki_tu;
-	while((ki_tu=GetKey())!=13&&index<51)
+	while((ki_tu=GetKey())!=13)
 	{
+	 if(index==51)continue;
 	 if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||(ki_tu==' '&&index!=0)||ki_tu=='-'||ki_tu=='_'||(ki_tu>='0'&&ki_tu<='9'))
 	 {
 	 	if(ki_tu==32&&index>0&&chuoi[index-1]==32)continue;
@@ -152,12 +199,13 @@ string NhapChuoi(int x,int y)// x va y la dia chi de hien ki tu vua nhap
 string NhapMa(int x,int y,string loai)
 {
 	gotoxy(x,y);
-	char Ma[24] ,ki_tu;
+	char Ma[21] ,ki_tu;
 	int index=0;
 	while((ki_tu=GetKey())!=13)
 	{
-		if((index==0&&(ki_tu==' '))||ki_tu==-32||ki_tu==0||index==24)continue;
-		if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||(ki_tu>='0'&&ki_tu<='9')||ki_tu=='_')
+		if(index==21)continue;
+		if((index==0&&(ki_tu==' '))||ki_tu==-32||ki_tu==0)continue;
+		if((ki_tu>='A'&&ki_tu<='Z')||(ki_tu>='a'&&ki_tu<='z')||(ki_tu>='0'&&ki_tu<='9')||ki_tu=='_'||ki_tu=='-')
 		{
 			Ma[index]=toupper(ki_tu);
 			gotoxy(x+index,y);
@@ -210,6 +258,14 @@ bool ThongBao(int x,int y,string noidung)
 		}
 	}
 	SetBGColor(0);
+	gotoxy(x,y);
+	cout<<"                                 ";
+	gotoxy(x,y+1);
+	cout<<"                                 ";
+	gotoxy(x,y+2);
+	cout<<"                                 ";
+	gotoxy(x,y+3);
+	cout<<"                                 ";
 	if(vi_tri=='t')return true;
 	else return false;
 }
