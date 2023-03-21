@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=8
+UnitCount=10
 
 [VersionInfo]
 Major=1
@@ -110,8 +110,48 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit9]
+FileName=XuLyGiaoDien.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=XuLyGiaoDien.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit11]
+FileName=XuLyGiaoDien.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit12]
+FileName=XuLyGiaoDien.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit7]
-FileName=Math.h
+FileName=ThuVien.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -121,7 +161,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=Math.cpp
+FileName=ThuVien.h
 CompileCpp=1
 Folder=
 Compile=1

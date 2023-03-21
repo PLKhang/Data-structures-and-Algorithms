@@ -4,9 +4,7 @@
 #include <filesystem>
 #include <time.h>
 #include <random>
-#include <cstdio>
 #include <stdlib.h>
-#include <sys/stat.h>
 #include <iomanip>
 
 using namespace std;

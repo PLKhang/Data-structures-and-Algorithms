@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 
+#include "XuLyGiaoDien.h"
+
 using namespace std;
 
 int getNumber()
@@ -64,6 +66,8 @@ bool DocDanhSachDiemThi(string mssv, string tenLH)
 int main()
 {
 	cout << "Hello world!\n";
+	
+	THONGBAO("Test ok");
 
 	int a = getNumber();
 	int b = getNumber();
